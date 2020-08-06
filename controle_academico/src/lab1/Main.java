@@ -11,47 +11,18 @@ public class Main {
         final Professor[] professores = new Professor[4];
         final Aluno[] alunos = new Aluno[30];
 
-        // povoar cadeiras
-        for (int i = 0, length = cadeiras.length; i < length; i++) {
-            cadeiras[i] = new Cadeira((i + 1), "Cadeira " + (i + 1));
-        }
-        // povoar alunos
-        for (int i = 0, length = alunos.length; i < length; i++) {
-            alunos[i] = new Aluno((i + 1), "Aluno " + (i + 1));
-        }
-        // povoar professores
-        for (int i = 0, length = professores.length; i < length; i++) {
-            professores[i] = new Professor((i + 1), "Professor " + (i + 1));
-        }
+        povoarCadeiras(cadeiras);
+        povoarHorarios(cadeiras);
 
-        // popular horarios
-        cadeiras[0].setHorario(new String[]{"Seg 07:00", "Sex 09:00"});
-        cadeiras[1].setHorario(new String[]{"Seg 09:00", "Qua 07:00"});
-        cadeiras[2].setHorario(new String[]{"Ter 07:00", "Qua 09:00"});
-        cadeiras[3].setHorario(new String[]{"Ter 09:00", "Qui 07:00"});
-        cadeiras[4].setHorario(new String[]{"Sex 07:00", "Qui 09:00"});
+        povoarAlunos(alunos);
+        povoarProfessores(professores);
 
-        // popular professores e cadeiras
-        for (int i = 0, length = cadeiras.length; i < length; i++) {
-            Cadeira cadeira = cadeiras[i];
-            Professor professor = professores[i % 3];
+        povoarCadeirasProfessores(cadeiras, professores);
 
-            cadeira.setProfessor(professor);
-            professor.addCadeira(cadeira);
-        }
+        povoarCadeirasAlunos(cadeiras, alunos);
 
-        // popular cadeiras e alunos
-        for (Cadeira cadeira : cadeiras) {
-            for (int i = 0, length = alunos.length; i < length; i++) {
-                Aluno aluno = alunos[i];
-                cadeira.addAluno(aluno);
-                aluno.adicionarCadeira(cadeira);
 
-                // limitar alunos por cadeira
-                if (i != 0 && i % 6 == 0)
-                    break;
-            }
-        }
+        // Visualizacao dos dados
 
         System.out.println("Cadeiras:");
         for (Cadeira cadeira1 : cadeiras) {
@@ -94,5 +65,55 @@ public class Main {
             System.out.println(aluno);
         }
 
+    }
+
+    private static void povoarCadeirasAlunos(Cadeira[] cadeiras, Aluno[] alunos) {
+        for (Cadeira cadeira : cadeiras) {
+            for (int i = 0, length = alunos.length; i < length; i++) {
+                Aluno aluno = alunos[i];
+                cadeira.addAluno(aluno);
+                aluno.addCadeira(cadeira);
+
+                // limitar alunos por cadeira
+                if (i != 0 && i % 10 == 0)
+                    break;
+            }
+        }
+    }
+
+    private static void povoarCadeirasProfessores(Cadeira[] cadeiras, Professor[] professores) {
+        for (int i = 0, length = cadeiras.length; i < length; i++) {
+            Cadeira cadeira = cadeiras[i];
+            Professor professor = professores[i % 3];
+
+            cadeira.setProfessor(professor);
+            professor.addCadeira(cadeira);
+        }
+    }
+
+    private static void povoarHorarios(Cadeira[] cadeiras) {
+        cadeiras[0].setHorario(new String[]{"Seg 07:00", "Sex 09:00"});
+        cadeiras[1].setHorario(new String[]{"Seg 09:00", "Qua 07:00"});
+        cadeiras[2].setHorario(new String[]{"Ter 07:00", "Qua 09:00"});
+        cadeiras[3].setHorario(new String[]{"Ter 09:00", "Qui 07:00"});
+        cadeiras[4].setHorario(new String[]{"Sex 07:00", "Qui 09:00"});
+    }
+
+    private static void povoarProfessores(Professor[] professores) {
+        for (int i = 0, length = professores.length; i < length; i++) {
+            professores[i] = new Professor((i + 1), "Professor " + (i + 1));
+        }
+    }
+
+    private static void povoarAlunos(Aluno[] alunos) {
+        for (int i = 0, length = alunos.length; i < length; i++) {
+            alunos[i] = new Aluno((i + 1), "Aluno " + (i + 1));
+        }
+    }
+
+    private static void povoarCadeiras(Cadeira[] cadeiras) {
+        for (int i = 0, length = cadeiras.length; i < length; i++) {
+            cadeiras[i] = new Cadeira((i + 1), "Cadeira " + (i + 1));
+        }
     }
 }
