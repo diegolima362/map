@@ -2,6 +2,7 @@ package models;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Cadeira {
     private final int id;
@@ -80,9 +81,18 @@ public class Cadeira {
 
     @Override
     public String toString() {
-        StringBuilder str = new StringBuilder("Nome: " + nome + " Professor: " + professor.getNome() + " Horario: ");
-        for (String horario : this.horario)
-            str.append(horario).append(" ");
+        StringBuilder str = new StringBuilder("Nome: " + nome + ", Professor: ");
+
+        if (this.professor != null)
+            str.append(professor.getNome());
+        else
+            str.append("Sem Professor");
+
+        if (horario != null) {
+            str.append(", Horario: ");
+            Arrays.stream(this.horario).forEach(horario -> str.append(horario).append(" "));
+        }
+
         return str.toString();
     }
 }

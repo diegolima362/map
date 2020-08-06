@@ -15,7 +15,7 @@ public class Aluno {
         this.cadeiras = new ArrayList<Cadeira>();
     }
 
-    public void adicionarCadeira(Cadeira cadeira) {
+    public void addCadeira(Cadeira cadeira) {
         this.cadeiras.add(cadeira);
     }
 
