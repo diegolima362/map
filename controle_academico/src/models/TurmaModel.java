@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TurmaModel {
+
     private final int id;
     private final CadeiraModel cadeira;
     private final String turno;
     private final ArrayList<AlunoMatriculadoTurma> alunos;
+
     private ProfessorModel professor;
-    private Horario[] horario;
+    private HorarioModel[] horario;
 
     public TurmaModel(int id, CadeiraModel cadeira, String turno) {
         this.id = id;
@@ -18,7 +20,7 @@ public class TurmaModel {
         this.alunos = new ArrayList<>();
     }
 
-    public TurmaModel(int id, CadeiraModel cadeira, String turno, ProfessorModel professor, ArrayList<AlunoMatriculadoTurma> alunos, Horario[] horario) {
+    public TurmaModel(int id, CadeiraModel cadeira, String turno, ProfessorModel professor, ArrayList<AlunoMatriculadoTurma> alunos, HorarioModel[] horario) {
         this.id = id;
         this.cadeira = cadeira;
         this.turno = turno;
@@ -31,12 +33,12 @@ public class TurmaModel {
         return id;
     }
 
-    public CadeiraModel getCadeira() {
-        return cadeira;
-    }
-
     public String getTurno() {
         return turno;
+    }
+
+    public CadeiraModel getCadeira() {
+        return cadeira;
     }
 
     public ProfessorModel getProfessor() {
@@ -45,9 +47,11 @@ public class TurmaModel {
 
     public void setProfessor(ProfessorModel professor) {
         this.professor = professor;
+        professor.getTurmas().addTurma(this);
     }
 
-    // Aluno management
+    // Gerenciar alunos
+
     public ArrayList<AlunoMatriculadoTurma> getAlunos() {
         return alunos;
     }
@@ -58,6 +62,7 @@ public class TurmaModel {
 
     public void addAluno(AlunoModel aluno) {
         AlunoMatriculadoTurma alunoMatriculado = new AlunoMatriculadoTurma(aluno);
+        aluno.getRdm().addTurma(this);
         alunos.add(alunoMatriculado);
     }
 
@@ -67,6 +72,7 @@ public class TurmaModel {
 
     public void removeAluno(AlunoModel aluno) {
         alunos.removeIf(a -> a.getAlunoModel().equals(aluno));
+        aluno.getRdm().removeTurma(this);
     }
 
     public int getTotalAlunos() {
@@ -75,11 +81,11 @@ public class TurmaModel {
 
     // Horario management
 
-    public Horario[] getHorario() {
+    public HorarioModel[] getHorario() {
         return horario;
     }
 
-    public void setHorario(Horario[] horario) {
+    public void setHorario(HorarioModel[] horario) {
         this.horario = horario;
     }
 

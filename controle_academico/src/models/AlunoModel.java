@@ -2,11 +2,13 @@ package models;
 
 public class AlunoModel {
     private final int id;
+    private final RegistroCadeiras rdm;
     private String nome;
 
     public AlunoModel(int id, String nome) {
         this.id = id;
         this.nome = nome;
+        this.rdm = new RegistroCadeiras();
     }
 
     public int getId() {
@@ -19,6 +21,10 @@ public class AlunoModel {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public RegistroCadeiras getRdm() {
+        return rdm;
     }
 
     @Override
@@ -34,6 +40,8 @@ public class AlunoModel {
         }
 
         AlunoModel aluno = (AlunoModel) o;
-        return aluno.nome.equals(this.nome) && aluno.id == this.id;
+        return aluno.nome.equals(this.nome)
+                && aluno.id == this.id
+                && aluno.getRdm().equals(this.rdm);
     }
 }

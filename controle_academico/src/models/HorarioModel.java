@@ -1,12 +1,12 @@
 package models;
 
-public class Horario {
+public class HorarioModel {
     private final String dia;
     private final String inicio;
     private final String fim;
     private final String local;
 
-    public Horario(String dia, String inicio, String fim, String local) {
+    public HorarioModel(String dia, String inicio, String fim, String local) {
         this.dia = dia;
         this.inicio = inicio;
         this.fim = fim;
@@ -37,11 +37,11 @@ public class Horario {
     @Override
     public boolean equals(Object o) {
         if (o == this) return true;
-        if (!(o instanceof Horario)) {
+        if (!(o instanceof HorarioModel)) {
             return false;
         }
 
-        Horario horario = (Horario) o;
+        HorarioModel horario = (HorarioModel) o;
         return horario.dia.equals(this.dia) &&
                 horario.inicio.equals(this.inicio) &&
                 horario.fim.equals(this.fim) &&
