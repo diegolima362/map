@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.ArrayList;
 
@@ -61,8 +62,17 @@ public class ControleAcademicoTest {
 	@Test
 	@Order(1)
 	void testGetAllCadeiras() {
-		ArrayList<CadeiraModel> caCadeiras = ca.getAllCadeiras();
-		assertEquals(7, caCadeiras.size());
+		ArrayList<CadeiraModel> caCadeiras = new ArrayList<>();
+
+		caCadeiras.add(new CadeiraModel(1, "REDES DE COMPUTADORES"));
+                caCadeiras.add(new CadeiraModel(2, "TÉCNICAS DE ANÁLISE DE ALGORITMO"));
+                caCadeiras.add(new CadeiraModel(3, "BANCO DE DADOS"));
+                caCadeiras.add(new CadeiraModel(4, "MÉTODOS AVANÇADOS DE PROGRAMAÇÃO"));
+                caCadeiras.add(new CadeiraModel(5, "ENGENHARIA DE SOFTWARE I"));
+                caCadeiras.add(new CadeiraModel(6, "PARADIGMAS DE PROGRAMAÇÃO"));
+                caCadeiras.add(new CadeiraModel(7, "PROBABILIDADE E ESTATÍSTICA II"));
+
+		assertArrayEquals(caCadeiras.toArray(), ca.getAllCadeiras().toArray());
 	}
 	
 	@Test
@@ -155,8 +165,20 @@ public class ControleAcademicoTest {
 	@Test
 	@Order(14)
 	void testGetAllAlunos() {
-		ArrayList<AlunoModel> caAlunos = ca.getAllAlunos();
-		assertEquals(10, caAlunos.size());
+		ArrayList<AlunoModel> caAlunos = new ArrayList<>();
+		
+		caAlunos.add(new AlunoModel(1, "João Gabriel"));
+                caAlunos.add(new AlunoModel(2, "Diego Lima"));
+                caAlunos.add(new AlunoModel(3, "Davi Campos"));
+		caAlunos.add(new AlunoModel(4, "Maria Coutinho"));
+                caAlunos.add(new AlunoModel(5, "Pedro Silva"));
+		caAlunos.add(new AlunoModel(6, "Carlos Gomes"));
+		caAlunos.add(new AlunoModel(7, "Carlos Silava"));
+		caAlunos.add(new AlunoModel(8, "Renan Coelho"));
+                caAlunos.add(new AlunoModel(9, "Luan Silva"));
+                caAlunos.add(new AlunoModel(10,"Joel Carvalho"));
+	
+		assertArrayEquals(caAlunos.toArray(), ca.getAllAlunos().toArray());
 
 	}
 
@@ -206,8 +228,18 @@ public class ControleAcademicoTest {
 	@Test
 	@Order(21)
 	void testGetAllProfessores() {
-		ArrayList<ProfessorModel> caProfessores = ca.getAllProfessores();
-		assertEquals(6, caProfessores.size());		
+		ArrayList<ProfessorModel> caProfessores = new ArrayList<>();
+
+		caProfessores.add(new ProfessorModel(1, "PAULO CESAR OLVEIRA BRITO"));
+		caProfessores.add(new ProfessorModel(2, "FÁBIO LUIZ LEITE JÚNIOR"));
+		caProfessores.add(new ProfessorModel(3, "SABRINA DE FIGUEIRÊDO SOUTO"));
+		caProfessores.add(new ProfessorModel(4, "LUCIANA DE QUEIROZ LEAL GOMES"));
+		caProfessores.add(new ProfessorModel(5, "JANDERSON JASON BARBOSA AGUIAR"));
+		caProfessores.add(new ProfessorModel(6, "MARIA DAS VITÓRIAS ALEXANDRE SERAFIM"));
+
+		assertArrayEquals(caProfessores.toArray(), 
+				ca.getAllProfessores().toArray());
+		
 	}
 
 	@Test
@@ -247,10 +279,14 @@ public class ControleAcademicoTest {
 	@Test
 	@Order(27)
 	void testGetAllTurmas() {
-		ArrayList<TurmaModel> caTurmas = ca.getAllTurmas();
-		assertEquals(4, caTurmas.size());
-	}
+		ArrayList<TurmaModel> caTurmas = new ArrayList<>();
 
-	
+		caTurmas.add(new TurmaModel(1, ca.getCadeira(1), "Noite"));
+		caTurmas.add(new TurmaModel(2, ca.getCadeira(2), "Manhã"));
+		caTurmas.add(new TurmaModel(3, ca.getCadeira(3), "Noite"));
+		caTurmas.add(new TurmaModel(4, ca.getCadeira(1), "Manhã"));
+
+		assertArrayEquals(caTurmas.toArray(), ca.getAllTurmas().toArray());
+	}
 
 }
