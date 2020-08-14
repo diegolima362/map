@@ -6,6 +6,7 @@ import models.ProfessorModel;
 import models.TurmaModel;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class ControleAcademico {
     private final ArrayList<CadeiraModel> cadeiras;
@@ -60,7 +61,7 @@ public class ControleAcademico {
     // Gerenciamento de Alunos
 
     public AlunoModel addAluno(String nome) {
-        int id = idGenerator.getNewIdTurma();
+        int id = idGenerator.getNewIdAluno();
         AlunoModel aluno = new AlunoModel(id, nome);
         alunos.add(aluno);
 
@@ -140,8 +141,12 @@ public class ControleAcademico {
         return turmas.size();
     }
 
-    public TurmaModel getTurmaPorId(int id) {
+    public TurmaModel getTurma(int id) {
         return turmas.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+    }
+
+    public ArrayList<TurmaModel> getTurmas(CadeiraModel cadeira) {
+        return turmas.stream().filter(t -> t.getCadeira().equals(cadeira)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void removeTurma(TurmaModel turma) {

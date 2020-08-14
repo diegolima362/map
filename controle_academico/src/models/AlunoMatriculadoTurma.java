@@ -24,7 +24,7 @@ public class AlunoMatriculadoTurma {
         this.faltas = faltas;
     }
 
-    public void addFalta(){
+    public void addFalta() {
         ++this.faltas;
     }
 
@@ -50,5 +50,25 @@ public class AlunoMatriculadoTurma {
 
     public void setNotaProvaFinal(double notaProvaFinal) {
         this.notaProvaFinal = notaProvaFinal;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof AlunoMatriculadoTurma)) {
+            return false;
+        }
+
+        AlunoMatriculadoTurma alunoMatriculado = (AlunoMatriculadoTurma) o;
+        return alunoMatriculado.getAlunoModel().equals(this.getAlunoModel()) &&
+                alunoMatriculado.faltas == this.faltas &&
+                alunoMatriculado.notaUndI == this.notaUndI &&
+                alunoMatriculado.notaUndII == this.notaUndII &&
+                alunoMatriculado.notaProvaFinal == this.notaProvaFinal;
+    }
+
+    @Override
+    public String toString() {
+        return aluno + " faltas: " + faltas + " nota1: " + notaUndI + " nota2: " + notaUndII + " final: " + notaProvaFinal;
     }
 }

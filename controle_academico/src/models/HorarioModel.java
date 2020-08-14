@@ -1,5 +1,8 @@
 package models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class HorarioModel {
     private final String dia;
     private final String inicio;
@@ -12,6 +15,14 @@ public class HorarioModel {
         this.fim = fim;
         this.local = local;
     }
+
+    public final static Map<String, Integer> weekDays = new HashMap<String, Integer>() {{
+        put("Seg", 1);
+        put("Ter", 2);
+        put("Qua", 3);
+        put("Qui", 4);
+        put("Sex", 5);
+    }};
 
     public String getDia() {
         return dia;
@@ -31,7 +42,7 @@ public class HorarioModel {
 
     @Override
     public String toString() {
-        return dia + " " + inicio + " : " + fim + " " + local;
+        return dia + ", " + inicio + "-" + fim + ", " + local;
     }
 
     @Override
