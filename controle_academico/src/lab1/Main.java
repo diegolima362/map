@@ -1,6 +1,5 @@
 package lab1;
 
-
 import controllers.ControleAcademico;
 import models.*;
 
@@ -58,7 +57,6 @@ public class Main {
         turma3.addAluno(ca.getAluno(1));
 
 
-
         System.out.println("\n-----------------------------------");
         System.out.println(professor1);
 
@@ -86,8 +84,6 @@ public class Main {
         System.out.println("Turmas que o aluno faz parte: " + aluno1.getRdm().getTotalTurmas());
         System.out.println("Horario: ");
         aluno1.getRdm().getHorario().forEach(System.out::println);
-
-
 
     }
 }

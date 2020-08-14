@@ -1,22 +1,22 @@
-package teste;
+package test;
 
+import controllers.ControleAcademico;
+import models.AlunoModel;
+import models.CadeiraModel;
+import models.ProfessorModel;
+import models.TurmaModel;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.ArrayList;
 
-import controllers.ControleAcademico;
-import models.CadeiraModel;
-import models.AlunoModel;
-import models.ProfessorModel;
-import models.TurmaModel;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ControleAcademicoTest {
@@ -288,5 +288,4 @@ public class ControleAcademicoTest {
 
 		assertArrayEquals(caTurmas.toArray(), ca.getAllTurmas().toArray());
 	}
-
 }
