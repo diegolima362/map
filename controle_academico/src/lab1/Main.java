@@ -82,6 +82,7 @@ public class Main {
 
         System.out.println(aluno1);
         System.out.println("Turmas que o aluno faz parte: " + aluno1.getRdm().getTotalTurmas());
+        aluno1.getRdm().getAllTurmas().forEach(System.out::println);
         System.out.println("Horario: ");
         aluno1.getRdm().getHorario().forEach(System.out::println);
 

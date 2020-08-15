@@ -114,10 +114,7 @@ public class TurmaModel {
         TurmaModel turma = (TurmaModel) o;
         return turma.id == this.id &&
                 turma.cadeira.equals(this.cadeira) &&
-                turma.turno.equals(this.turno) &&
-                turma.professor.equals(this.professor) &&
-                Arrays.equals(turma.horario, this.horario) &&
-                turma.alunos.equals(this.alunos);
+                turma.turno.equals(this.turno);
     }
 
 
