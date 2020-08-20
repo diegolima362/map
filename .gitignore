@@ -3,3 +3,8 @@
 ./out
 controle_academico/out
 controle_academico/.idea
+
+# Compiled class file
+*.class
+
+
