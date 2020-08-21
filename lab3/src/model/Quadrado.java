@@ -11,13 +11,13 @@ public class Quadrado implements FiguraGeometrica {
         return this.lado;
     }
 
-    public void setLado() {
+    public void setLado(double lado) {
         this.lado = lado;
     }
 
     @Override
     public double getArea() {
-        return Math.pow(lado, 2);
+        return lado * lado;
     }
 
     @Override
@@ -26,10 +26,5 @@ public class Quadrado implements FiguraGeometrica {
     }
 
     @Override
-    public String toString() {
-        StringBuilder string = new StringBuilder();
-        return string.append("O quadrado criado tem lados de tamanho: ")
-            .append(lado)
-            .toString();
-    }
+    public String toString() { return "O quadrado criado tem lados de tamanho: " + lado; }
 }

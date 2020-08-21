@@ -37,11 +37,6 @@ public class Retangulo implements FiguraGeometrica {
 
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
-        return string.append("O retângulo criado tem altura de tamanho: ")
-            .append(altura)
-            .append(" e largura de tamanho: ")
-            .append(base)
-            .toString();
+        return "O retângulo criado tem altura de tamanho: " + altura + " e largura de tamanho: " + base;
     }
 }

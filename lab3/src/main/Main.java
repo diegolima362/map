@@ -1,15 +1,21 @@
 package main;
 
+import exceptions.ExceptionValorNegativo;
 import model.Circulo;
+import model.FiguraGeometrica;
 import model.Quadrado;
 import model.Retangulo;
 
 public class Main {
     public static void main(String[] args) {
-        Circulo circulo = new Circulo(3);
-        Quadrado quadrado = new Quadrado(4);
-        Retangulo retangulo = new Retangulo(3, 4);
-
+        FiguraGeometrica circulo = null;
+        try {
+            circulo = new Circulo(3);
+        } catch (ExceptionValorNegativo exceptionValorNegativo) {
+            exceptionValorNegativo.printStackTrace();
+        }
+        FiguraGeometrica quadrado = new Quadrado(4);
+        FiguraGeometrica retangulo = new Retangulo(3, 4);
 
        // Área das figuras geométricas
        System.out.println("Área das figuras geométricas");
@@ -28,5 +34,6 @@ public class Main {
        System.out.println(circulo.toString());
        System.out.println(quadrado.toString());
        System.out.println(retangulo.toString());
+
     }
 }

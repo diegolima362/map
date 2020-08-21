@@ -1,17 +1,20 @@
 package model;
 
+
+import exceptions.ExceptionValorNegativo;
+
 public class Circulo implements FiguraGeometrica {
     private double raio;
 
-    public Circulo (double raio) {
+    public Circulo(double raio) throws ExceptionValorNegativo {
+        if (raio < 0) throw new ExceptionValorNegativo();
+
         this.raio = raio;
     }
 
-    public double getRaio() {
-        return this.raio;
-    }
+    public double getRaio() { return this.raio; }
 
-    public void setRaio() {
+    public void setRaio(double raio) throws ExceptionValorNegativo {
         this.raio = raio;
     }
 
@@ -27,9 +30,6 @@ public class Circulo implements FiguraGeometrica {
 
     @Override
     public String toString() {
-        StringBuilder string = new StringBuilder();
-        return string.append("O circulo criado tem raio de tamanho: ")
-            .append(raio)
-            .toString();
+        return "O circulo criado tem raio de tamanho: " + raio;
     }
 }
