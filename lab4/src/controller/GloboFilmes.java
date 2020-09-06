@@ -14,6 +14,10 @@ public class GloboFilmes {
         this.filmes = new ArrayList<Filme>();
     }
 
+    public ArrayList<Filme> getFilmes() {
+        return this.filmes;
+    }
+
     public void cadastrarFilme(String nome, int ano, Map<String, ArrayList<String>> funcionarios,
             ArrayList<String> trilhaSonora) {
 
