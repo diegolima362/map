@@ -1,6 +1,7 @@
 ./build
 ./idea
 ./out
+*/out
 controle_academico/out
 controle_academico/.idea
 
