@@ -63,7 +63,7 @@ public class Main {
         sig.getProfessor().mostrarTempoDeCasa("Paulo Silva");
 
         System.out.println("Professores de uma mesma disciplina");
-        sig.getProfessor().mostrarProfessoresPorDiciplina("Linguagem de Programação II");
+        sig.getProfessor().mostrarProfessoresPorDisciplina("Linguagem de Programação II");
 
 
     }
