@@ -65,6 +65,45 @@ public class Main {
         System.out.println("Professores de uma mesma disciplina");
         sig.getProfessor().mostrarProfessoresPorDisciplina("Linguagem de Programação II");
 
+        System.out.println("");
+        System.out.println("SubSistema Aluno.");
+        System.out.println("Alunos.");
+
+       sig.getAluno().cadastrarAluno("João Gabriel", new ArrayList<>(Arrays.asList(
+                       new Disciplina("Linguagem de Programação I"), 
+                       new Disciplina("Linguagem de Programação II"))));
+       sig.getAluno().cadastrarAluno("Diego Lima", new ArrayList<>(Arrays.asList(
+                       new Disciplina("Cálculo I"),
+                       new Disciplina("Álgebra Linear"))));
+
+       sig.getAluno().mostrarRDMDoAluno("João Gabriel");
+       sig.getAluno().mostrarRDMDoAluno("Diego Lima");
+
+       System.out.println("");
+       System.out.println("SubSistema Álmoxarifado");
+       System.out.println("Materias");
+
+       sig.getAlmoxarifado().cadastrarMaterial("Cadeira", 300.00);
+       sig.getAlmoxarifado().cadastrarMaterial("Apagador", 33.95);
+
+       sig.getAlmoxarifado().comprarMaterial("Computador", 1785.00);
+
+       sig.getAlmoxarifado().mostrarEstoque();
+        
+       System.out.println("");
+       System.out.println("SubSistema InfraEstrutura.");
+       System.out.println("Salas.");
+        
+       sig.getInfraEstrutura().cadastrarSala(201, "A", true);
+       sig.getInfraEstrutura().cadastrarSala(103, "C", true);
+       sig.getInfraEstrutura().cadastrarSala(104, "B", true);
+
+       sig.getInfraEstrutura().reservarSala("Paulo Silva", 103, "C");
+        
+       sig.getInfraEstrutura().mostrarSalas();
+
+       System.out.println("Salas disponíveis");
+       sig.getInfraEstrutura().mostrarSalasDisponiveis();
 
     }
 }

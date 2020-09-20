@@ -9,6 +9,10 @@ public class ProfessorFacade {
         this.professores = new ArrayList<>();
     }
 
+    public ArrayList<Professor> getProfessores() {
+        return this.professores;
+    }
+
     public void cadastrarProfessor(String nome, ArrayList<Disciplina> disciplinas, double tempoDeCasa) {
         Professor novoProfessor = new Professor(nome, disciplinas, tempoDeCasa);
         professores.add(novoProfessor);

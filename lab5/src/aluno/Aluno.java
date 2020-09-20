@@ -23,7 +23,22 @@ public class Aluno {
 
     public void mostrarRDM() {
         for (Disciplina disciplina : disciplinas) {
-            System.out.printf("Disciplina: %s\n", disciplina.getNome());
+            System.out.printf("Aluno: %s, Disciplina: %s\n", this.nome, disciplina.getNome());
         }
+    }
+
+    @Override                                                                                                            public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (! (obj instanceof Aluno)) {
+            return false;
+        }
+
+        Aluno outroAluno = (Aluno)obj;
+        return this.nome != null && this.nome.equals(outroAluno.getNome());
     }
 }

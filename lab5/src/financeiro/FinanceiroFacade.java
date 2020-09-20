@@ -11,6 +11,12 @@ public class FinanceiroFacade {
         this.dividasEmGeral = new ArrayList<>();
     }
 
+    public ArrayList<Divida> getDividas() {
+        return this.dividasEmGeral;
+    }
+    public ArrayList<Funcionario> getFuncionarios() {
+        return this.funcionarios;
+    }
     public void cadastrarDivida(String nome, double debito, double credito) {
         Divida novaDivida = new Divida(nome, debito, credito);
         this.dividasEmGeral.add(novaDivida);

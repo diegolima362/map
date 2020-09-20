@@ -10,6 +10,11 @@ public class AlunoFacade {
         this.alunos = new ArrayList<>();
     }
 
+
+    public ArrayList<Aluno> getAlunos() {
+        return this.alunos;
+    }
+
     public void cadastrarAluno(String nome, ArrayList<Disciplina> disciplinas) {
         Aluno novoAluno = new Aluno(nome, disciplinas);
         this.alunos.add(novoAluno);

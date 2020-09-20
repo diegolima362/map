@@ -9,11 +9,13 @@ public class Material {
         this.valor = valor;
     }
 
-    public String getNome() {
-        return this.nome;
-    }
-
-    public double getValor() {
-        return this.valor;
+    @Override
+    public String toString() {
+        return new StringBuilder()
+            .append("Nome: ")
+            .append(this.nome)
+            .append(", Preço: ")
+            .append(this.valor)
+            .toString();
     }
 }

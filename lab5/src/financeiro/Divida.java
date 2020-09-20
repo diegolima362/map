@@ -11,6 +11,24 @@ public class Divida {
         this.credito = credito;
     }
 
+    public String getNome() {
+        return this.nome;
+    }
+    @Override                                                                                                            public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (! (obj instanceof Divida)) {
+            return false;
+        }
+
+        Divida outraDivida = (Divida)obj;
+        return this.nome != null && this.nome.equals(outraDivida.getNome());
+    }
+
     @Override
     public String toString() {
         return new StringBuilder()

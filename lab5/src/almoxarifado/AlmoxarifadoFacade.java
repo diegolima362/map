@@ -16,11 +16,11 @@ public class AlmoxarifadoFacade {
 
     public void mostrarEstoque() {
         for (Material material : estoque) {
-            System.out.printf("Nome: %s, Valor: %f\n", material.getNome(), material.getValor());
+            System.out.println(material);
         }
     }
 
-    public void comprarMateial(String nomeDoMaterial, double valorDoMaterial) {
+    public void comprarMaterial(String nomeDoMaterial, double valorDoMaterial) {
         cadastrarMaterial(nomeDoMaterial, valorDoMaterial);
     }
 

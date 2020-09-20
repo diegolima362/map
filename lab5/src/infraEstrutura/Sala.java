@@ -47,8 +47,9 @@ public class Sala {
         return new StringBuilder()
             .append("Sala: ")
             .append(this.numero)
-            .append(",")
-            .append("Disponível: ")
+            .append(", Professor: ")
+            .append(this.professor)
+            .append(", Disponível: ")
             .append(this.disponivel)
             .toString();
     }

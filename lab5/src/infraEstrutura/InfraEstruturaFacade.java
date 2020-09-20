@@ -10,7 +10,7 @@ public class InfraEstruturaFacade {
     }
 
     public void cadastrarSala(int numero, String bloco, boolean disponivel) {
-        Sala novaSala= new Sala(numero, bloco, disponivel);
+        Sala novaSala = new Sala(numero, bloco, disponivel);
         this.salas.add(novaSala);
     }
 
@@ -19,6 +19,12 @@ public class InfraEstruturaFacade {
             if (sala.getDisponivel()) {
                 System.out.println(sala);
             }
+        }
+    }
+
+    public void mostrarSalas() {
+        for (Sala sala : salas) {
+            System.out.println(sala);
         }
     }
 
