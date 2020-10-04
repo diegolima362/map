@@ -27,7 +27,7 @@ public class Main {
         System.out.printf("Área do círculo: %.2f\n\n", circulo.getArea());
 
         FiguraGeometrica quadrado = FabricaFiguraGeometrica.getQuadrado(2);
-        System.out.printf("Perímetro do círculo: %.2f\n", quadrado.getPerimetro());
-        System.out.printf("Área do círculo: %.2f\n\n", quadrado.getArea());
+        System.out.printf("Perímetro do quadrado: %.2f\n", quadrado.getPerimetro());
+        System.out.printf("Área do quadrado: %.2f\n\n", quadrado.getArea());
     }
 }
