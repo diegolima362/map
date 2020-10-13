@@ -2,6 +2,9 @@
 ./idea
 ./out
 */out
+*/bin
+*/.idea
+*.iml
 controle_academico/out
 controle_academico/.idea
 
