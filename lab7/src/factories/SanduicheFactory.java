@@ -1,10 +1,10 @@
 package factories;
 
-import models.Sanduiche;
-import models.SanduicheTipo;
-import models.sanduiches.SanduicheEspecial;
-import models.sanduiches.SanduicheLight;
-import models.sanduiches.SanduicheVegetariano;
+import models.sanduiches.Sanduiche;
+import models.sanduiches.SanduicheTipo;
+import models.sanduiches.SanduicheCaipira;
+import models.sanduiches.SanduicheIntegral;
+import models.sanduiches.SanduicheCheddarNatural;
 
 public class SanduicheFactory {
     public Sanduiche getSanduiche(SanduicheTipo tipo) {
@@ -12,14 +12,18 @@ public class SanduicheFactory {
             return null;
         }
 
-        if (SanduicheTipo.LIGHT == tipo) {
-            return new SanduicheLight();
-        } else if (SanduicheTipo.ESPECIAL == tipo) {
-            return new SanduicheEspecial();
-        } else if (SanduicheTipo.VEGETARIANO == tipo) {
-            return new SanduicheVegetariano();
-        } else {
-            return null;
+        if (SanduicheTipo.INTEGRAL == tipo) {
+            return new SanduicheIntegral();
         }
+
+        if (SanduicheTipo.CAIPIRA == tipo) {
+            return new SanduicheCaipira();
+        } 
+
+        if (SanduicheTipo.CHEDDAR_NATURAL == tipo) {
+            return new SanduicheCheddarNatural();
+        }
+
+        return null;
     }
 }

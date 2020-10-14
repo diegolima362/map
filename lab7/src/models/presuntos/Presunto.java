@@ -2,5 +2,5 @@ package models.presuntos;
 
 import models.Ingrediente;
 
-public abstract class Presunto implements Ingrediente {
+public interface Presunto extends Ingrediente {
 }

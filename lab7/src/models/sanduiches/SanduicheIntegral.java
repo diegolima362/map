@@ -1,9 +1,8 @@
 package models.sanduiches;
 
 import models.Ingrediente;
-import models.Sanduiche;
 import models.ovos.Ovo;
-import models.ovos.OvoCapoeira;
+import models.ovos.OvoGranja;
 import models.paes.Pao;
 import models.paes.PaoIntegral;
 import models.presuntos.Presunto;
@@ -13,20 +12,20 @@ import models.queijos.QueijoPrato;
 import models.tomates.Tomate;
 import models.tomates.TomateCereja;
 
-public class SanduicheLight extends Sanduiche {
-    private final String nome = "Sanduiche Light";
+public class SanduicheIntegral implements Sanduiche {
+    private final String nome = "Sanduiche Integral";
 
     private final Pao pao;
-    private final Ovo ovo;
     private final Queijo queijo;
     private final Presunto presunto;
+    private final Ovo ovo;
     private final Tomate tomate;
 
-    public SanduicheLight() {
+    public SanduicheIntegral() {
         this.pao = new PaoIntegral();
-        this.ovo = new OvoCapoeira();
-        this.presunto = new PresuntoPeru();
         this.queijo = new QueijoPrato();
+        this.presunto = new PresuntoPeru();
+        this.ovo = new OvoGranja();
         this.tomate = new TomateCereja();
     }
 
@@ -37,7 +36,7 @@ public class SanduicheLight extends Sanduiche {
 
     @Override
     public Ingrediente[] getIngredientes() {
-        return new Ingrediente[]{pao, ovo, queijo, presunto, tomate};
+        return new Ingrediente[]{pao, queijo, presunto, ovo, tomate};
     }
 
     @Override
@@ -55,5 +54,30 @@ public class SanduicheLight extends Sanduiche {
             s.append(i.getNome()).append(", ");
         }
         return s.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (! (obj instanceof SanduicheIntegral)) {
+            return false;
+        }
+
+        SanduicheIntegral outroSanduiche = (SanduicheIntegral)obj;
+        Ingrediente[] outroIngredientes = outroSanduiche.getIngredientes();
+        Ingrediente[] atualIngredientes = getIngredientes();
+
+        for (int i = 0; i < atualIngredientes.length; i++) {
+            if (!atualIngredientes[i].getNome().equals(outroIngredientes[i].getNome())) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
