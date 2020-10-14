@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         SanduicheFactory factory = new SanduicheFactory();
 
+        System.out.println("Sanduiches:");
         Sanduiche s1 = factory.getSanduiche(SanduicheTipo.INTEGRAL);
         System.out.println(s1.toString());
 
