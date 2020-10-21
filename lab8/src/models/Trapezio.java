@@ -40,8 +40,8 @@ public class Trapezio implements Forma {
     }
 
     @Override
-    public void aceitarVisita(Visitor v) {
-        v.visitarTrapezio(this);
+    public double aceitarVisita(Visitor v) {
+        return v.visitarTrapezio(this);
     }
 
     @Override

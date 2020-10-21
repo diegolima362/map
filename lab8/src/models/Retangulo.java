@@ -30,8 +30,8 @@ public class Retangulo implements Forma {
     }
 
     @Override
-    public void aceitarVisita(Visitor v) {
-        v.visitarRetangulo(this);
+    public double aceitarVisita(Visitor v) {
+        return v.visitarRetangulo(this);
     }
 
     @Override

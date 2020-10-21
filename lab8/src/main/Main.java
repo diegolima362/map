@@ -18,35 +18,36 @@ public class Main {
 
         System.out.println("\nFormas\n");
 
-        desenhar.visitarCirculo(circulo);
-        desenhar.visitarRetangulo(retangulo);
-        desenhar.visitarTrapezio(trapezio);
-        desenhar.visitarTriangulo(triangulo);
+        circulo.aceitarVisita(desenhar);
+        retangulo.aceitarVisita(desenhar);
+        trapezio.aceitarVisita(desenhar);
+        triangulo.aceitarVisita(desenhar);
 
         System.out.println("\nAreas\n");
 
-        System.out.println("Circulo: " + calcularArea.visitarCirculo(circulo));
-        System.out.println("Retangulo: " + calcularArea.visitarRetangulo(retangulo));
-        System.out.println("trapezio: " + calcularArea.visitarTrapezio(trapezio));
-        System.out.println("Triangulo: " + calcularArea.visitarTriangulo(triangulo));
+        System.out.println("Circulo: " + circulo.aceitarVisita(calcularArea));
+        System.out.println("Retangulo: " + retangulo.aceitarVisita(calcularArea));
+        System.out.println("trapezio: " + trapezio.aceitarVisita(calcularArea));
+        System.out.println("Triangulo: " + triangulo.aceitarVisita(calcularArea));
 
         System.out.println("\nPerimetros\n");
 
-        System.out.println("Circulo: " + calcularPerimetro.visitarCirculo(circulo));
-        System.out.println("Retangulo: " + calcularPerimetro.visitarRetangulo(retangulo));
-        System.out.println("trapezio: " + calcularPerimetro.visitarTrapezio(trapezio));
-        System.out.println("Triangulo: " + calcularPerimetro.visitarTriangulo(triangulo));
+        System.out.println("Circulo: " + circulo.aceitarVisita(calcularPerimetro));
+        System.out.println("Retangulo: " + retangulo.aceitarVisita(calcularPerimetro));
+        System.out.println("trapezio: " + trapezio.aceitarVisita(calcularPerimetro));
+        System.out.println("Triangulo: " + triangulo.aceitarVisita(calcularPerimetro));
 
-        maximizar.visitarCirculo(circulo);
-        maximizar.visitarRetangulo(retangulo);
-        maximizar.visitarTrapezio(trapezio);
-        maximizar.visitarTriangulo(triangulo);
+        circulo.aceitarVisita(maximizar);
+        retangulo.aceitarVisita(maximizar);
+        trapezio.aceitarVisita(maximizar);
+        triangulo.aceitarVisita(maximizar);
 
         System.out.println("\nMaximizado\n");
 
-        desenhar.visitarCirculo(circulo);
-        desenhar.visitarRetangulo(retangulo);
-        desenhar.visitarTrapezio(trapezio);
-        desenhar.visitarTriangulo(triangulo);
+        circulo.aceitarVisita(desenhar);
+        retangulo.aceitarVisita(desenhar);
+        trapezio.aceitarVisita(desenhar);
+        triangulo.aceitarVisita(desenhar);
+
     }
 }

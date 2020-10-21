@@ -38,8 +38,8 @@ public class Triangulo implements Forma {
     }
 
     @Override
-    public void aceitarVisita(Visitor v) {
-        v.visitarTriangulo(this);
+    public double aceitarVisita(Visitor v) {
+        return v.visitarTriangulo(this);
     }
 
     @Override

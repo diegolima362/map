@@ -20,8 +20,8 @@ public class Circulo implements Forma {
     }
 
     @Override
-    public void aceitarVisita(Visitor v) {
-        v.visitarCirculo(this);
+    public double aceitarVisita(Visitor v) {
+        return v.visitarCirculo(this);
     }
 
     @Override
