@@ -23,11 +23,11 @@ public class Main {
         list.forEach(System.out::println);
         
         System.out.println("");
-        System.out.println("Adatando o size");
+        System.out.println("Adaptando o size");
         System.out.println(list.size());
 
         System.out.println("");
-        System.out.println("Adatando o get");
+        System.out.println("Adaptando o get");
         System.out.println(list.get(1));
 
         System.out.println("");
@@ -36,13 +36,13 @@ public class Main {
 
 
         System.out.println("");
-        System.out.println("Adatando o toArray");
+        System.out.println("Adaptando o toArray");
         for (String s : list.toArray(new String[0])) {
             System.out.println(s);
         }
  
         System.out.println("");
-        System.out.println("Adatando o contains");
+        System.out.println("Adaptando o contains");
         System.out.println(list.contains("Maria"));
   
         System.out.println("");
@@ -50,7 +50,7 @@ public class Main {
         list.clear();
         
         System.out.println("");
-        System.out.println("Adatando o isEmpty");
+        System.out.println("Adaptando o isEmpty");
         System.out.println(list.isEmpty());
 
         Map<String, String> map = new MapToList<>(new ArrayList<>());
@@ -91,7 +91,7 @@ public class Main {
         System.out.println(map.size());
 
         System.out.println("");
-        System.out.println("Adaptndo o clear");
+        System.out.println("Adaptando o clear");
         map.clear();
     }
 }
