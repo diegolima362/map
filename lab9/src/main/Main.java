@@ -11,49 +11,87 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        List<String> l = new ListToMap<>(new HashMap<>());
+        List<String> list = new ListToMap<>(new HashMap<>());
 
-        System.out.println("\nList to map\n");
+        System.out.println("\nList to map: Adaptando a interface Map para a interface List\n");
 
-        l.add(0, "Lucas");
-        l.add("Joao");
-        l.forEach(System.out::println);
-        System.out.println();
 
-        l.add(1, "Maria");
-        l.forEach(System.out::println);
+        System.out.println("Adatando o add");
+        list.add(0, "Gabriel");
+        list.add("João");
+        list.add(1, "Maria");
+        list.forEach(System.out::println);
+        
+        System.out.println("");
+        System.out.println("Adatando o size");
+        System.out.println(list.size());
 
-        System.out.println(l.size());
-        System.out.println(l.isEmpty());
+        System.out.println("");
+        System.out.println("Adatando o get");
+        System.out.println(list.get(1));
 
-        System.out.println();
-        l.remove("Maria");
+        System.out.println("");
+        System.out.println("Adaptando o remove");
+        list.remove("Maria");
 
-        for (String s : l.toArray(new String[0])) {
+
+        System.out.println("");
+        System.out.println("Adatando o toArray");
+        for (String s : list.toArray(new String[0])) {
             System.out.println(s);
         }
+ 
+        System.out.println("");
+        System.out.println("Adatando o contains");
+        System.out.println(list.contains("Maria"));
+  
+        System.out.println("");
+        System.out.println("Adaptando o clear");
+        list.clear();
+        
+        System.out.println("");
+        System.out.println("Adatando o isEmpty");
+        System.out.println(list.isEmpty());
 
-        System.out.println(l.contains("Maria"));
+        Map<String, String> map = new MapToList<>(new ArrayList<>());
+        System.out.println("\nMap to list: Adaptando a interface List para a interface Map\n");
 
-        l.clear();
+        System.out.println("");
+        System.out.println("Adaptando o put");
+        map.put("nome", "João");
+        map.put("sobrenome", "Coutinho");
 
-        System.out.println(l.isEmpty());
+        System.out.println("");
+        System.out.println("Adaptando o get");
+        System.out.println(map.get("nome"));
+        System.out.println(map.get("sobrenome"));
 
-        Map<String, String> m = new MapToList<>(new ArrayList<>());
-        System.out.println("\nMap to list\n");
+        System.out.println("");
+        System.out.println("Adaptando o containsValue");
+        System.out.println(map.containsValue("Coutinho"));
+        
+        System.out.println("");
+        System.out.println("Adaptando o containsKey");
+        System.out.println(map.containsKey("sobrenome"));
 
-        m.put("nome", "Jose");
-        m.put("sobrenome", "Silva");
+        System.out.println("");
+        System.out.println("Adaptando o values");
+        map.values().forEach(System.out::println);
 
-        System.out.println(m.get("nome"));
-        System.out.println(m.get("sobrenome"));
-        System.out.println(m.containsValue("Silva"));
+        System.out.println("");
+        System.out.println("Adaptando o isEmpty");
+        System.out.println(map.isEmpty());
 
-        m.values().forEach(System.out::println);
-        System.out.println(m.isEmpty());
-        m.remove("nome");
-        System.out.println(m.containsValue("Jose"));
-        System.out.println(m.size());
-        m.clear();
+        System.out.println("");
+        System.out.println("Adaptando o remove");
+        map.remove("nome");
+
+        System.out.println("");
+        System.out.println("Adaptando o size");
+        System.out.println(map.size());
+
+        System.out.println("");
+        System.out.println("Adaptndo o clear");
+        map.clear();
     }
 }

@@ -78,7 +78,7 @@ public class ListToMap<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return map.get(map.values().toArray()[index]);
+        return map.get(index);
     }
 
     @Override
@@ -88,10 +88,29 @@ public class ListToMap<E> implements List<E> {
 
     @Override
     public void add(int index, E element) {
-        if (map.isEmpty() || key <= index)
+        Map<Integer, E> otherMap = new HashMap<>();
+        int i = 0;
+
+        if (map.isEmpty() || index > key) {
             map.put(key++, element);
-        else
-            map.put((Integer) map.keySet().toArray()[index], element);
+            return;
+        }
+
+        for (Map.Entry<Integer, E> entry: map.entrySet()) {
+            if (i > index) {
+                otherMap.put(entry.getKey() + 2, entry.getValue());
+            } else if (i < index) {
+                otherMap.put(entry.getKey(), entry.getValue());
+            } else {
+                otherMap.put(entry.getKey(), element);
+                otherMap.put(entry.getKey() + 1, entry.getValue());
+                key++;
+            }
+            i++;
+        }
+        for (Map.Entry<Integer, E> entry: otherMap.entrySet()) {
+            map.put(entry.getKey(), entry.getValue());
+        }
     }
 
     @Override

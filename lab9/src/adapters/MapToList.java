@@ -54,9 +54,8 @@ public class MapToList<K, V> implements Map<K, V> {
         if (index != -1) {
             keys.remove(key);
             return values.remove(index);
-        } else {
-            return null;
         }
+        return null;
     }
 
     @Override
